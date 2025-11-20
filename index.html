@@ -1,160 +1,644 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jeevesh Singh | Data Analyst Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
-    <header>
-        <div class="container">
-            <h1 class="reveal">Jeevesh Singh</h1>
-            <p id="typewriter" class="reveal"></p>
-        </div>
-    </header>
+    <title>Jeevesh Singh | Portfolio</title>
+    <meta name="description" content="Portfolio of Jeevesh Singh - Electronics Engineer & Data Analyst">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <nav>
-        <div class="container">
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#extracurricular">Activities</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: '#0B1120',       // Very deep blue/black
+                        cardDark: '#1e293b',   // Slate 800 for cards
+                        cardHover: '#334155',  // Slate 700 for hover
+                        primary: '#3b82f6',    // Bright Blue
+                        accent: '#06b6d4',     // Cyan for glows
+                        textMain: '#f8fafc',   // Almost White
+                        textMuted: '#94a3b8',  // Muted Gray
+                    },
+                    boxShadow: {
+                        'neon': '0 0 20px rgba(59, 130, 246, 0.5)',
+                        'neon-hover': '0 0 30px rgba(6, 182, 212, 0.6)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom scrollbar for Dark Mode */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+        
+        /* Glowing blob animation */
+        @keyframes blob {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .animate-blob {
+            animation: blob 7s infinite;
+        }
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
+        .animation-delay-4000 {
+            animation-delay: 4s;
+        }
+
+        /* Glass Card Effect */
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-dark text-textMain font-sans antialiased selection:bg-accent selection:text-dark">
+
+    <!-- Background Effects -->
+    <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-blue-600 rounded-full mix-blend-screen filter blur-[128px] opacity-20 animate-blob"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-600 rounded-full mix-blend-screen filter blur-[128px] opacity-20 animate-blob animation-delay-2000"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-dark/80 backdrop-blur-lg border-b border-white/10 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold tracking-wide text-white">
+                Jeevesh<span class="text-accent">.</span>
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 font-medium text-sm">
+                <a href="#home" class="text-slate-300 hover:text-accent transition duration-300">Home</a>
+                <a href="#about" class="text-slate-300 hover:text-accent transition duration-300">About</a>
+                <a href="#skills" class="text-slate-300 hover:text-accent transition duration-300">Skills</a>
+                <a href="#experience" class="text-slate-300 hover:text-accent transition duration-300">Experience</a>
+                <a href="#projects" class="text-slate-300 hover:text-accent transition duration-300">Projects</a>
+                <a href="#certifications" class="text-slate-300 hover:text-accent transition duration-300">Certifications</a>
+                <a href="#contact" class="text-accent border border-accent/50 px-5 py-1.5 rounded-full hover:bg-accent hover:text-dark transition duration-300 shadow-[0_0_15px_rgba(6,182,212,0.3)] hover:shadow-neon-hover">Contact</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-2xl text-white hover:text-accent transition">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cardDark border-t border-white/10 absolute w-full">
+            <div class="flex flex-col px-6 py-4 space-y-4 font-medium">
+                <a href="#home" class="text-slate-200 hover:text-accent">Home</a>
+                <a href="#about" class="text-slate-200 hover:text-accent">About</a>
+                <a href="#skills" class="text-slate-200 hover:text-accent">Skills</a>
+                <a href="#experience" class="text-slate-200 hover:text-accent">Experience</a>
+                <a href="#projects" class="text-slate-200 hover:text-accent">Projects</a>
+                <a href="#certifications" class="text-slate-200 hover:text-accent">Certifications</a>
+                <a href="#contact" class="text-accent">Contact Me</a>
+            </div>
         </div>
     </nav>
 
-    <main>
-        <div class="container">
-            <section id="about" class="reveal">
-                <h2>About Me</h2>
-                <div class="about-container">
-                    <div class="about-text">
-                        <p>Aspiring Data Analyst skilled in Python, SQL, Excel, and Power BI with a focus on transforming raw data into clear, actionable insights. Solved 300+ algorithmic problems showcasing strong analytical and problem-solving abilities. Passionate about applying data to solve real-world business challenges.</p>
-                    </div>
-                    <div class="about-photo">
-                        <img src="profile.jpg" alt="Jeevesh Singh" class="profile-photo">
-                    </div>
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 relative">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="text-center md:text-left space-y-6 z-10">
+                <div class="inline-block px-4 py-1.5 bg-blue-500/10 border border-blue-500/30 text-blue-400 rounded-full text-sm font-semibold tracking-wide mb-2 backdrop-blur-sm">
+                    Electronics & Communication Engineer
                 </div>
-            </section>
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight text-white">
+                    Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Jeevesh Singh</span>
+                </h1>
+                <p class="text-lg md:text-xl text-slate-400 max-w-lg mx-auto md:mx-0 leading-relaxed">
+                    Bridging the gap between <span class="text-slate-200">Hardware Systems</span> and <span class="text-slate-200">Data Analytics</span>. 
+                    I build smart solutions using IoT, Embedded Systems, and Machine Learning.
+                </p>
+                
+                <!-- Buttons -->
+                <div class="flex flex-wrap gap-4 justify-center md:justify-start pt-4">
+                    <!-- Resume Button -->
+                    <a href="resume.pdf" download class="bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-8 py-3.5 rounded-lg shadow-lg hover:shadow-neon transition transform hover:-translate-y-1 flex items-center gap-2 font-medium">
+                        <i class="fas fa-download"></i> Download Resume
+                    </a>
+                    <!-- Contact Button -->
+                    <a href="#contact" class="bg-transparent text-white border border-slate-600 px-8 py-3.5 rounded-lg hover:bg-slate-800 hover:border-slate-500 transition flex items-center gap-2">
+                        <i class="fas fa-envelope"></i> Contact Me
+                    </a>
+                </div>
 
-            <section id="experience" class="reveal">
-                <h2>Experience</h2>
-                <div class="experience-item">
-                    <h3>Intern</h3>
-                    <p class="experience-company">Uttar Pradesh Power Corporation Limited (UPPCL)</p>
-                    <p class="experience-date">July 2025 – Present</p>
+                <!-- Social Links (Updated) -->
+                <div class="flex gap-6 justify-center md:justify-start text-slate-500 pt-6 text-2xl">
+                    <a href="https://www.linkedin.com/in/jeevesh-singh/" target="_blank" title="LinkedIn" class="hover:text-blue-400 transition hover:-translate-y-1"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.hackerrank.com/profile/ECEB_310079" target="_blank" title="HackerRank" class="hover:text-green-400 transition hover:-translate-y-1"><i class="fab fa-hackerrank"></i></a>
+                    <a href="https://www.codechef.com/users/singhjeevesh20" target="_blank" title="CodeChef" class="hover:text-yellow-400 transition hover:-translate-y-1"><i class="fas fa-code"></i></a>
                 </div>
-            </section>
-
-            <section id="projects" class="reveal">
-                <h2>Projects Showcase</h2>
-                <div class="projects-grid">
-                    <div class="project-card">
-                         <h3>Indian Job Market Post-COVID Dashboard</h3>
-                         <p>A Power BI dashboard analyzing the shift in India's job market dynamics before and after the pandemic, focusing on job demand, skillsets, and regional trends.</p>
-                        <div class="project-footer">
-                            <span class="tech-tag">Power BI</span>
-                            <span class="tech-tag">Data Integration</span>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <h3>Sales Dashboard</h3>
-                        <p>An interactive dashboard to monitor and analyze sales performance across segments, implementing drill-downs, slicers, and dynamic KPIs using DAX.</p>
-                        <div class="project-footer">
-                           <span class="tech-tag">Power BI</span>
-                           <span class="tech-tag">DAX</span>
-                           <span class="tech-tag">KPIs</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <section id="skills" class="reveal">
-                <h2>Technical Skills</h2>
-                <div class="skills-list">
-                    <ul>
-                        <li><strong>Programming:</strong> Python, SQL, C</li>
-                        <li><strong>Visualization:</strong> Power BI, Excel</li>
-                        <li><strong>Libraries:</strong> Pandas, NumPy</li>
-                        <li><strong>Platforms:</strong> <a href="https://www.codechef.com/users/singhjeevesh20" target="_blank">CodeChef</a>, <a href="https://www.hackerrank.com/profile/ECEB_310079" target="_blank">HackerRank</a></li>
-                    </ul>
-                </div>
-            </section>
-
-            <section id="certifications" class="reveal">
-                <h2>Certifications & Achievements</h2>
-                <div class="achievements-grid">
-                    <div class="achievement-card">
-                        <i class="fab fa-google"></i>
-                        <h4>Google Data Analytics Professional Certificate</h4>
-                        <p>Coursera (Expected: July 2025)</p>
-                    </div>
-                    <div class="achievement-card">
-                        <i class="fas fa-chart-pie"></i>
-                        <h4>Power BI for Data Analysis</h4>
-                        <p>Udemy (Expected: August 2025)</p>
-                    </div>
-                    <div class="achievement-card">
-                        <i class="fas fa-code"></i>
-                        <h4>300+ Problems on CodeChef</h4>
-                        <p>Maintained a 1400+ rating.</p>
-                    </div>
-                    <div class="achievement-card">
-                        <i class="fab fa-hackerrank"></i>
-                        <h4>5-Star Rating on HackerRank</h4>
-                        <p>In data structures & algorithms.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="extracurricular" class="reveal">
-                <h2>Extracurricular Activities</h2>
-                <div class="activities-grid">
-                    <div class="activity-card">
-                        <h4>Light De Literacy (NGO)</h4>
-                        <p><strong>Overall Coordinator</strong> (Dec 2022 – Present)</p>
-                    </div>
-                    <div class="activity-card">
-                        <h4>Environ Club</h4>
-                        <p><strong>Overall Coordinator</strong> (Oct 2023 – Present)</p>
-                    </div>
-                    <div class="activity-card">
-                        <h4>Creative Club</h4>
-                        <p><strong>Member</strong> (Oct 2023 – Dec 2024)</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="contact" class="reveal">
-                <h2>Get In Touch</h2>
-                <div class="contact-links">
-                    <a href="mailto:singhjeevesh2005@gmail.com" class="contact-button">Email</a>
-                    <a href="https://www.linkedin.com/in/jeevesh-singh" target="_blank" class="contact-button">LinkedIn</a>
-                    <a href="tel:+919628290979" class="contact-button">Phone</a>
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/jeevesh-singh" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://www.codechef.com/users/singhjeevesh20" target="_blank"><i class="fas fa-code"></i></a>
-                <a href="https://www.hackerrank.com/profile/ECEB_310079" target="_blank"><i class="fab fa-hackerrank"></i></a>
             </div>
-            <p>&copy; 2025 Jeevesh Singh</p>
+
+            <!-- Hero Image / Visual -->
+            <div class="relative flex justify-center items-center z-10">
+                <!-- Profile Circle Container -->
+                <div class="relative w-72 h-72 md:w-96 md:h-96">
+                    <!-- Rotating Glow Ring -->
+                    <div class="absolute inset-0 rounded-full border-2 border-dashed border-blue-500/30 animate-[spin_10s_linear_infinite]"></div>
+                    <div class="absolute inset-4 rounded-full border-2 border-dashed border-cyan-500/30 animate-[spin_15s_linear_infinite_reverse]"></div>
+                    
+                    <!-- Profile Image Container -->
+                    <div class="absolute inset-8 bg-cardDark rounded-full flex items-center justify-center overflow-hidden border-4 border-slate-700/50 shadow-2xl hover:scale-105 transition duration-500 group">
+                        <img 
+                            src="profile.jpg" 
+                            alt="Jeevesh Singh" 
+                            class="w-full h-full object-cover group-hover:opacity-90 transition"
+                            onerror="this.src='https://ui-avatars.com/api/?name=Jeevesh+Singh&background=0D8ABC&color=fff&size=512'"
+                        >
+                    </div>
+
+                    <!-- Floating Stats Badge 1: SQL -->
+                    <div class="absolute top-10 -right-4 glass-card p-3 rounded-xl shadow-lg animate-bounce duration-[3000ms]">
+                        <div class="flex items-center gap-3">
+                            <div class="bg-yellow-500/20 p-2 rounded-lg text-yellow-400"><i class="fas fa-star"></i></div>
+                            <div>
+                                <div class="text-xs text-slate-400 uppercase tracking-wider">HackerRank</div>
+                                <div class="font-bold text-white">4 Star in SQL</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Floating Stats Badge 2: Python -->
+                    <div class="absolute bottom-28 -right-8 glass-card p-3 rounded-xl shadow-lg animate-bounce duration-[3500ms]">
+                        <div class="flex items-center gap-3">
+                            <div class="bg-blue-500/20 p-2 rounded-lg text-blue-400"><i class="fab fa-python"></i></div>
+                            <div>
+                                <div class="text-xs text-slate-400 uppercase tracking-wider">HackerRank</div>
+                                <div class="font-bold text-white">5 Star Python</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Floating Stats Badge 3: CodeChef -->
+                    <div class="absolute bottom-10 -left-4 glass-card p-3 rounded-xl shadow-lg animate-bounce duration-[4000ms]">
+                        <div class="flex items-center gap-3">
+                            <div class="bg-green-500/20 p-2 rounded-lg text-green-400"><i class="fas fa-code"></i></div>
+                            <div>
+                                <div class="text-xs text-slate-400 uppercase tracking-wider">CodeChef</div>
+                                <div class="font-bold text-white">300+ Solved</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-dark relative">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">About Me</h2>
+                <div class="w-24 h-1.5 bg-gradient-to-r from-blue-600 to-cyan-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-start">
+                <div class="space-y-6 text-lg text-slate-400 leading-relaxed">
+                    <p>
+                        I am a final year <strong class="text-white">B.Tech student in ECE</strong> at ABES Engineering College, Noida. My journey is defined by a curiosity for how hardware interacts with software.
+                    </p>
+                    <p>
+                        Beyond circuits, I am passionate about <strong class="text-cyan-400">Data Analytics and Machine Learning</strong>. I love uncovering insights from data to drive decisions, whether it's predicting blood donation trends or analyzing power grid fluctuations.
+                    </p>
+                    <p>
+                        I also lead social initiatives, guiding the <strong class="text-white">Light De Literacy</strong> NGO team and organizing sustainability drives.
+                    </p>
+                </div>
+                
+                <div class="glass-card p-8 rounded-2xl">
+                    <h3 class="text-xl font-bold mb-8 flex items-center gap-3 text-white">
+                        <i class="fas fa-graduation-cap text-cyan-400"></i> Education Timeline
+                    </h3>
+                    
+                    <div class="space-y-8 border-l border-slate-700 ml-3">
+                        <!-- Education Item 1 -->
+                        <div class="relative pl-8">
+                            <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-blue-500 border-4 border-cardDark shadow-[0_0_10px_rgba(59,130,246,0.6)]"></div>
+                            <h4 class="font-bold text-xl text-white">B.Tech in ECE</h4>
+                            <p class="text-sm text-blue-400 font-medium mb-1">2022 - 2026</p>
+                            <p class="text-slate-400">ABES Engineering College, Noida</p>
+                            <div class="mt-2 inline-block px-3 py-1 bg-slate-700 rounded text-xs text-slate-300">Aggregate: 70%</div>
+                        </div>
+
+                        <!-- Education Item 2 -->
+                        <div class="relative pl-8">
+                            <div class="absolute -left-[5px] top-2 w-2 h-2 rounded-full bg-slate-600"></div>
+                            <h4 class="font-bold text-lg text-slate-200">Intermediate (Class XII)</h4>
+                            <p class="text-sm text-slate-500 font-medium mb-1">Session 2021</p>
+                            <p class="text-slate-500">Mahamana Malviya Inter College</p>
+                            <div class="mt-2 inline-block px-3 py-1 bg-slate-700 rounded text-xs text-slate-300">Percentage: 75%</div>
+                        </div>
+
+                        <!-- Education Item 3 -->
+                        <div class="relative pl-8">
+                            <div class="absolute -left-[5px] top-2 w-2 h-2 rounded-full bg-slate-600"></div>
+                            <h4 class="font-bold text-lg text-slate-200">High School (Class X)</h4>
+                            <p class="text-sm text-slate-500 font-medium mb-1">Session 2019</p>
+                            <p class="text-slate-500">Mahamana Malviya Inter College</p>
+                            <div class="mt-2 inline-block px-3 py-1 bg-slate-700 rounded text-xs text-slate-300">Percentage: 83%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 bg-[#0f172a]">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Technical Arsenal</h2>
+                <p class="text-slate-400">A versatile blend of hardware engineering and data science capabilities.</p>
+            </div>
+
+            <!-- CHANGED GRID TO 2 COLUMNS FOR 4 ITEMS -->
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Card 1: Data Analytics & ML -->
+                <div class="bg-cardDark p-8 rounded-2xl border border-slate-700 hover:border-blue-500/50 transition duration-300 hover:-translate-y-2 group">
+                    <div class="w-14 h-14 bg-blue-500/10 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-blue-500 group-hover:text-white transition duration-300 text-blue-400">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white">Data Analytics & ML</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-xs border border-slate-700">Python</span>
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-xs border border-slate-700">SQL</span>
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-xs border border-slate-700">Power BI</span>
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-xs border border-slate-700">Excel</span>
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-xs border border-slate-700">Google Sheets</span>
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-xs border border-slate-700">Pandas/NumPy</span>
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-xs border border-slate-700">TPOT AutoML</span>
+                    </div>
+                </div>
+
+                <!-- Card 2: Hardware & IoT -->
+                <div class="bg-cardDark p-8 rounded-2xl border border-slate-700 hover:border-green-500/50 transition duration-300 hover:-translate-y-2 group">
+                    <div class="w-14 h-14 bg-green-500/10 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-green-500 group-hover:text-white transition duration-300 text-green-400">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white">Hardware & IoT</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-xs border border-slate-700">Arduino</span>
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-xs border border-slate-700">NodeMCU</span>
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-xs border border-slate-700">Proteus</span>
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-xs border border-slate-700">PCB Design</span>
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-xs border border-slate-700">Sensors</span>
+                    </div>
+                </div>
+
+                <!-- Card 3: Tools & Languages -->
+                <div class="bg-cardDark p-8 rounded-2xl border border-slate-700 hover:border-purple-500/50 transition duration-300 hover:-translate-y-2 group">
+                    <div class="w-14 h-14 bg-purple-500/10 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-purple-500 group-hover:text-white transition duration-300 text-purple-400">
+                        <i class="fas fa-terminal"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white">Tools & Languages</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-xs border border-slate-700">C / C++</span>
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-xs border border-slate-700">Embedded C</span>
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-xs border border-slate-700">MATLAB</span>
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-xs border border-slate-700">PowerPoint</span>
+                    </div>
+                </div>
+
+                <!-- Card 4: Soft Skills (NEW) -->
+                <div class="bg-cardDark p-8 rounded-2xl border border-slate-700 hover:border-yellow-500/50 transition duration-300 hover:-translate-y-2 group">
+                    <div class="w-14 h-14 bg-yellow-500/10 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-yellow-500 group-hover:text-white transition duration-300 text-yellow-400">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white">Soft Skills</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-xs border border-slate-700">Leadership</span>
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-xs border border-slate-700">Team Management</span>
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-xs border border-slate-700">Problem-Solving</span>
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-xs border border-slate-700">Communication</span>
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-xs border border-slate-700">Adaptability</span>
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-xs border border-slate-700">Analytical Thinking</span>
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-xs border border-slate-700">Time Management</span>
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-xs border border-slate-700">Initiative</span>
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-xs border border-slate-700">Collaboration</span>
+                        <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-xs border border-slate-700">Critical Thinking</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-24 bg-dark">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Work Experience</h2>
+                <div class="w-24 h-1.5 bg-gradient-to-r from-blue-600 to-cyan-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="max-w-4xl mx-auto space-y-8">
+                <!-- Exp Item 1 -->
+                <div class="bg-cardDark p-6 md:p-8 rounded-2xl border border-slate-700 flex flex-col md:flex-row gap-6 hover:border-blue-500/30 transition">
+                    <div class="md:w-1/3">
+                        <span class="text-cyan-400 font-bold text-lg">MedTourEasy</span>
+                        <div class="text-slate-400 text-sm mt-1">July - Aug 2025</div>
+                        <div class="mt-3 inline-block px-3 py-1 bg-blue-500/10 text-blue-400 text-xs rounded-full font-medium">Industrial Trainee</div>
+                    </div>
+                    <div class="md:w-2/3 border-l border-slate-700 pl-6 md:pl-8">
+                        <h3 class="text-xl font-bold text-white mb-2">Data Analytics Trainee</h3>
+                        <ul class="list-disc list-outside text-slate-400 space-y-2 ml-4">
+                            <li>Extracted insights from patient & hospital data for decision making.</li>
+                            <li>Applied statistical analysis, EDA, and data modeling.</li>
+                            <li>Strengthened proficiency in SQL, Dashboarding, and Data Storytelling.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Exp Item 2 -->
+                <div class="bg-cardDark p-6 md:p-8 rounded-2xl border border-slate-700 flex flex-col md:flex-row gap-6 hover:border-blue-500/30 transition">
+                    <div class="md:w-1/3">
+                        <span class="text-cyan-400 font-bold text-lg">UPPCL</span>
+                        <div class="text-slate-400 text-sm mt-1">July 2025</div>
+                        <div class="mt-3 inline-block px-3 py-1 bg-blue-500/10 text-blue-400 text-xs rounded-full font-medium">Summer Intern</div>
+                    </div>
+                    <div class="md:w-2/3 border-l border-slate-700 pl-6 md:pl-8">
+                        <h3 class="text-xl font-bold text-white mb-2">Engineering Intern</h3>
+                        <ul class="list-disc list-outside text-slate-400 space-y-2 ml-4">
+                            <li>Hands-on exposure to power distribution, substations, and SCADA.</li>
+                            <li>Analyzed voltage/load data to prepare technical maintenance reports.</li>
+                            <li>Learned smart grid technologies and energy auditing.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 bg-[#0f172a]">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Featured Projects</h2>
+                <p class="text-slate-400">A showcase of my technical problem solving.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project 1: Blood Donation ML -->
+                <div class="group bg-cardDark rounded-xl overflow-hidden border border-slate-700 hover:border-blue-500/50 transition duration-300 flex flex-col h-full">
+                    <div class="h-2 bg-blue-500"></div>
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-white group-hover:text-blue-400 transition">Blood Donation ML</h3>
+                            <i class="fas fa-heartbeat text-slate-500"></i>
+                        </div>
+                        <p class="text-slate-400 text-sm mb-6">Machine Learning model to predict donor behavior. Compared Logistic Regression (0.78 ROC) vs TPOT AutoML.</p>
+                        <div class="mt-auto flex flex-wrap gap-2">
+                            <span class="text-xs text-slate-300 bg-slate-800 px-2 py-1 rounded">Python</span>
+                            <span class="text-xs text-slate-300 bg-slate-800 px-2 py-1 rounded">Scikit-learn</span>
+                            <span class="text-xs text-slate-300 bg-slate-800 px-2 py-1 rounded">TPOT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Job Market Analysis -->
+                <div class="group bg-cardDark rounded-xl overflow-hidden border border-slate-700 hover:border-yellow-500/50 transition duration-300 flex flex-col h-full">
+                    <div class="h-2 bg-yellow-500"></div>
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-white group-hover:text-yellow-400 transition">Job Market Analysis</h3>
+                            <i class="fas fa-briefcase text-slate-500"></i>
+                        </div>
+                        <p class="text-slate-400 text-sm mb-6">Interactive dashboard analyzing hiring trends in India Pre & Post-COVID. Visualized regional employment shifts.</p>
+                        <div class="mt-auto flex flex-wrap gap-2">
+                            <span class="text-xs text-slate-300 bg-slate-800 px-2 py-1 rounded">Power BI</span>
+                            <span class="text-xs text-slate-300 bg-slate-800 px-2 py-1 rounded">DAX</span>
+                            <span class="text-xs text-slate-300 bg-slate-800 px-2 py-1 rounded">Excel</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Sales Dashboard -->
+                <div class="group bg-cardDark rounded-xl overflow-hidden border border-slate-700 hover:border-orange-500/50 transition duration-300 flex flex-col h-full">
+                    <div class="h-2 bg-orange-500"></div>
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-white group-hover:text-orange-400 transition">Sales Dashboard</h3>
+                            <i class="fas fa-chart-line text-slate-500"></i>
+                        </div>
+                        <p class="text-slate-400 text-sm mb-6">An interactive dashboard to monitor and analyze sales performance across segments, implementing drill-downs, slicers, and dynamic KPIs using DAX.</p>
+                        <div class="mt-auto flex flex-wrap gap-2">
+                            <span class="text-xs text-slate-300 bg-slate-800 px-2 py-1 rounded">Power BI</span>
+                            <span class="text-xs text-slate-300 bg-slate-800 px-2 py-1 rounded">DAX</span>
+                            <span class="text-xs text-slate-300 bg-slate-800 px-2 py-1 rounded">KPIs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Guardian Drive -->
+                <div class="group bg-cardDark rounded-xl overflow-hidden border border-slate-700 hover:border-red-500/50 transition duration-300 flex flex-col h-full">
+                    <div class="h-2 bg-red-500"></div>
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-white group-hover:text-red-400 transition">Guardian Drive</h3>
+                            <i class="fas fa-car-crash text-slate-500"></i>
+                        </div>
+                        <p class="text-slate-400 text-sm mb-6">Dual-module system: IoT-based anti-theft control & AI-based driver drowsiness detection to prevent accidents.</p>
+                        <div class="mt-auto flex flex-wrap gap-2">
+                            <span class="text-xs text-slate-300 bg-slate-800 px-2 py-1 rounded">NodeMCU</span>
+                            <span class="text-xs text-slate-300 bg-slate-800 px-2 py-1 rounded">OpenCV</span>
+                            <span class="text-xs text-slate-300 bg-slate-800 px-2 py-1 rounded">GPS/GSM</span>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Project 5: Smart Plant Monitor -->
+                 <div class="group bg-cardDark rounded-xl overflow-hidden border border-slate-700 hover:border-green-500/50 transition duration-300 flex flex-col h-full">
+                    <div class="h-2 bg-green-500"></div>
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-white group-hover:text-green-400 transition">Smart Plant Monitor</h3>
+                            <i class="fas fa-leaf text-slate-500"></i>
+                        </div>
+                        <p class="text-slate-400 text-sm mb-6">IoT irrigation system. Monitors soil moisture & temp, automated via NodeMCU with Blynk app integration.</p>
+                        <div class="mt-auto flex flex-wrap gap-2">
+                            <span class="text-xs text-slate-300 bg-slate-800 px-2 py-1 rounded">Arduino</span>
+                            <span class="text-xs text-slate-300 bg-slate-800 px-2 py-1 rounded">Blynk</span>
+                            <span class="text-xs text-slate-300 bg-slate-800 px-2 py-1 rounded">DHT11</span>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Project 6: Smart Dustbin -->
+                 <div class="group bg-cardDark rounded-xl overflow-hidden border border-slate-700 hover:border-purple-500/50 transition duration-300 flex flex-col h-full">
+                    <div class="h-2 bg-purple-500"></div>
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-white group-hover:text-purple-400 transition">Smart Dustbin</h3>
+                            <i class="fas fa-recycle text-slate-500"></i>
+                        </div>
+                        <p class="text-slate-400 text-sm mb-6">Touchless waste collection system using ultrasonic sensors and servo motors for better hygiene.</p>
+                        <div class="mt-auto flex flex-wrap gap-2">
+                            <span class="text-xs text-slate-300 bg-slate-800 px-2 py-1 rounded">Arduino</span>
+                            <span class="text-xs text-slate-300 bg-slate-800 px-2 py-1 rounded">Ultrasonic</span>
+                            <span class="text-xs text-slate-300 bg-slate-800 px-2 py-1 rounded">Servo</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="py-24 bg-dark relative">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Certifications</h2>
+                <div class="w-24 h-1.5 bg-gradient-to-r from-blue-600 to-cyan-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Cert 1 -->
+                <div class="glass-card p-6 rounded-xl flex items-center gap-6 hover:bg-slate-800/50 transition border border-slate-700 hover:border-blue-500/50">
+                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden">
+                        <!-- ACTION REQUIRED: Save your uploaded Google logo as 'google-logo.png' in this folder -->
+                        <img src="google-logo.png" alt="Google" class="w-full h-full object-cover p-1">
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white">Google Data Analytics</h3>
+                        <p class="text-slate-400 text-sm">Coursera | Google</p>
+                        <p class="text-xs text-slate-500 mt-1">Issued Aug 2025</p>
+                    </div>
+                </div>
+
+                <!-- Cert 2 -->
+                <div class="glass-card p-6 rounded-xl flex items-center gap-6 hover:bg-slate-800/50 transition border border-slate-700 hover:border-yellow-500/50">
+                    <div class="w-16 h-16 bg-slate-900 rounded-full flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-chart-bar text-yellow-500 text-3xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white">Power BI Desktop</h3>
+                        <p class="text-slate-400 text-sm">Udemy | Maven Analytics</p>
+                        <p class="text-xs text-slate-500 mt-1">Issued Aug 2025</p>
+                    </div>
+                </div>
+
+                <!-- Cert 3 -->
+                <div class="glass-card p-6 rounded-xl flex items-center gap-6 hover:bg-slate-800/50 transition border border-slate-700 hover:border-green-500/50">
+                    <div class="w-16 h-16 bg-slate-900 rounded-full flex items-center justify-center flex-shrink-0">
+                        <i class="fab fa-hackerrank text-green-500 text-3xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white">Python (Basic)</h3>
+                        <p class="text-slate-400 text-sm">HackerRank</p>
+                        <p class="text-xs text-slate-500 mt-1">Issued Aug 2025</p>
+                    </div>
+                </div>
+
+                <!-- Cert 4 -->
+                <div class="glass-card p-6 rounded-xl flex items-center gap-6 hover:bg-slate-800/50 transition border border-slate-700 hover:border-purple-500/50">
+                    <div class="w-16 h-16 bg-slate-900 rounded-full flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-puzzle-piece text-purple-500 text-3xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white">Problem Solving (Basic)</h3>
+                        <p class="text-slate-400 text-sm">HackerRank</p>
+                        <p class="text-xs text-slate-500 mt-1">Issued Aug 2025</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-dark border-t border-white/5">
+        <div class="container mx-auto px-6 max-w-4xl text-center">
+            <h2 class="text-3xl font-bold mb-8 text-white">Let's Build Something</h2>
+            <p class="text-slate-400 mb-12 text-lg">
+                I am currently looking for opportunities in <span class="text-blue-400">Data Analytics</span> or <span class="text-blue-400">Embedded Systems</span>.
+            </p>
+            
+            <div class="flex flex-col md:flex-row justify-center gap-6 mb-12">
+                <a href="mailto:singhjeevesh2005@gmail.com" class="flex items-center justify-center gap-3 px-8 py-4 bg-cardDark rounded-xl hover:bg-blue-600 hover:text-white text-slate-300 transition border border-slate-700 group">
+                    <i class="fas fa-envelope group-hover:text-white text-blue-500 text-xl"></i>
+                    <span class="font-medium">singhjeevesh2005@gmail.com</span>
+                </a>
+                <!-- PHONE NUMBER REMOVED -->
+            </div>
+
+            <!-- Footer Social Links (Updated) -->
+            <div class="flex justify-center gap-8 text-3xl text-slate-500">
+                <a href="https://www.linkedin.com/in/jeevesh-singh/" target="_blank" title="LinkedIn" class="hover:text-blue-500 transition transform hover:-translate-y-1"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.hackerrank.com/profile/ECEB_310079" target="_blank" title="HackerRank" class="hover:text-green-500 transition transform hover:-translate-y-1"><i class="fab fa-hackerrank"></i></a>
+                <a href="https://www.codechef.com/users/singhjeevesh20" target="_blank" title="CodeChef" class="hover:text-yellow-500 transition transform hover:-translate-y-1"><i class="fas fa-code"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#020617] text-slate-500 py-8 text-center text-sm border-t border-slate-800">
+        <p>&copy; 2025 Jeevesh Singh. Designed with <i class="fas fa-heart text-red-500 mx-1"></i> and Code.</p>
     </footer>
-    <script src="script.js"></script>
+
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('menu-btn');
+        const nav = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            nav.classList.toggle('hidden');
+        });
+
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                nav.classList.add('hidden'); 
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Navbar background change on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-2xl');
+                navbar.classList.add('bg-dark/95');
+            } else {
+                navbar.classList.remove('shadow-2xl');
+                navbar.classList.remove('bg-dark/95');
+            }
+        });
+    </script>
 </body>
 </html>
