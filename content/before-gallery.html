@@ -1,0 +1,347 @@
+
+
+    <!-- Background Effects -->
+    <div class="ambient-background fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-blue-600 rounded-full mix-blend-screen filter blur-[128px] opacity-20 animate-blob"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-600 rounded-full mix-blend-screen filter blur-[128px] opacity-20 animate-blob animation-delay-2000"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-dark/80 backdrop-blur-lg border-b border-white/10 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold tracking-wide text-foreground">
+                Jeevesh<span class="text-accent">.</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 font-medium text-sm">
+                <a href="#home" class="text-stone-700 hover:text-accent transition duration-300">Home</a>
+                <a href="#about" class="text-stone-700 hover:text-accent transition duration-300">About</a>
+                <a href="#skills" class="text-stone-700 hover:text-accent transition duration-300">Skills</a>
+                <a href="#experience" class="text-stone-700 hover:text-accent transition duration-300">Experience</a>
+                <a href="#projects" class="text-stone-700 hover:text-accent transition duration-300">Projects</a>
+                <a href="#certifications" class="text-stone-700 hover:text-accent transition duration-300">Certifications</a>
+                <a href="#contact" class="text-accent border border-accent/50 px-5 py-1.5 rounded-full hover:bg-accent hover:text-dark transition duration-300 shadow-[0_0_15px_rgba(6,182,212,0.3)] hover:shadow-neon-hover">Contact</a>
+            </div>
+
+            <div id="theme-switch-slot"></div><!-- Mobile Menu Button -->
+            <button id="menu-btn" aria-label="Open navigation menu" class="md:hidden text-2xl text-foreground hover:text-accent transition">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cardDark border-t border-white/10 absolute w-full">
+            <div class="flex flex-col px-6 py-4 space-y-4 font-medium">
+                <a href="#home" class="text-foreground hover:text-accent">Home</a>
+                <a href="#about" class="text-foreground hover:text-accent">About</a>
+                <a href="#skills" class="text-foreground hover:text-accent">Skills</a>
+                <a href="#experience" class="text-foreground hover:text-accent">Experience</a>
+                <a href="#projects" class="text-foreground hover:text-accent">Projects</a>
+                <a href="#certifications" class="text-foreground hover:text-accent">Certifications</a>
+                <a href="#contact" class="text-accent">Contact Me</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 relative">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="text-center md:text-left space-y-6 z-10">
+                <div class="inline-block px-4 py-1.5 bg-blue-500/10 border border-blue-500/30 text-teal-700 rounded-full text-sm font-semibold tracking-wide mb-2 backdrop-blur-sm">
+                    Implementation Engineer &amp; Data Analytics
+                </div>
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight text-foreground">
+                    Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Jeevesh Singh</span>
+                </h1>
+                <p class="text-lg md:text-xl text-stone-600 max-w-lg mx-auto md:mx-0 leading-relaxed">
+                    I help manufacturing teams turn <span class="text-foreground">business workflows</span> into reliable <span class="text-foreground">ERP systems</span>. Implementation Engineer at CBO ERP Limited, with hands-on experience in data migration, analytics, and 10+ client implementations.
+                </p>
+
+                <!-- Buttons -->
+                <div class="flex flex-wrap gap-4 justify-center md:justify-start pt-4">
+                    <!-- Resume Button -->
+                    <a href="/resume.pdf" download="Jeevesh-Singh-Resume.pdf" class="bg-gradient-to-r from-blue-600 to-cyan-600 text-foreground px-8 py-3.5 rounded-lg shadow-lg hover:shadow-neon transition transform hover:-translate-y-1 flex items-center gap-2 font-medium">
+                        <i class="fas fa-download"></i> Download Resume
+                    </a>
+                    <!-- Contact Button -->
+                    <a href="#contact" class="bg-transparent text-foreground border border-stone-300 px-8 py-3.5 rounded-lg hover:bg-stone-100 hover:border-slate-500 transition flex items-center gap-2">
+                        <i class="fas fa-envelope"></i> Contact Me
+                    </a>
+                </div>
+
+                <!-- Social Links -->
+                <div class="flex gap-6 justify-center md:justify-start text-stone-600 pt-6 text-2xl">
+                    <a href="https://www.linkedin.com/in/jeevesh-singh/" target="_blank" title="LinkedIn" class="hover:text-teal-700 transition hover:-translate-y-1"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.hackerrank.com/profile/ECEB_310079" target="_blank" title="HackerRank" class="hover:text-green-400 transition hover:-translate-y-1"><i class="fab fa-hackerrank"></i></a>
+                    <a href="https://www.codechef.com/users/singhjeevesh20" target="_blank" title="CodeChef" class="hover:text-yellow-400 transition hover:-translate-y-1"><i class="fas fa-code"></i></a>
+                </div>
+            </div>
+
+            <!-- Hero Image / Visual -->
+            <div class="relative flex justify-center items-center z-10">
+                <!-- Profile Circle Container -->
+                <div class="relative w-72 h-72 md:w-96 md:h-96">
+                    <!-- Rotating Glow Ring -->
+                    <div class="absolute inset-0 rounded-full border-2 border-dashed border-blue-500/30 animate-[spin_10s_linear_infinite]"></div>
+                    <div class="absolute inset-4 rounded-full border-2 border-dashed border-cyan-500/30 animate-[spin_15s_linear_infinite_reverse]"></div>
+
+                    <!-- Profile Image Container -->
+                    <div class="absolute inset-8 bg-cardDark rounded-full flex items-center justify-center overflow-hidden border-4 border-stone-200/50 shadow-2xl hover:scale-105 transition duration-500 group">
+                        <img
+                            src="/gallery/portrait.png"
+                            alt="Jeevesh Singh wearing a white shirt outdoors"
+                            style="object-position: 50% 32%; transform: scale(1.9); transform-origin: 50% 32%;"
+                            class="w-full h-full object-cover group-hover:opacity-90 transition"
+                            onerror="this.src='https://ui-avatars.com/api/?name=Jeevesh+Singh&background=0D8ABC&color=fff&size=512'"
+                        >
+                    </div>
+
+                    <!-- Floating Stats Badge 1: SQL -->
+                    <div class="absolute top-10 -right-4 glass-card p-3 rounded-xl shadow-lg animate-bounce duration-[3000ms]">
+                        <div class="flex items-center gap-3">
+                            <div class="bg-yellow-500/20 p-2 rounded-lg text-yellow-400"><i class="fas fa-star"></i></div>
+                            <div>
+                                <div class="text-xs text-stone-600 uppercase tracking-wider">HackerRank</div>
+                                <div class="font-bold text-foreground">4 Star in SQL</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Floating Stats Badge 2: Python -->
+                    <div class="absolute bottom-28 -right-8 glass-card p-3 rounded-xl shadow-lg animate-bounce duration-[3500ms]">
+                        <div class="flex items-center gap-3">
+                            <div class="bg-blue-500/20 p-2 rounded-lg text-teal-700"><i class="fab fa-python"></i></div>
+                            <div>
+                                <div class="text-xs text-stone-600 uppercase tracking-wider">HackerRank</div>
+                                <div class="font-bold text-foreground">5 Star Python</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Floating Stats Badge 3: CodeChef -->
+                    <div class="absolute bottom-10 -left-4 glass-card p-3 rounded-xl shadow-lg animate-bounce duration-[4000ms]">
+                        <div class="flex items-center gap-3">
+                            <div class="bg-green-500/20 p-2 rounded-lg text-green-400"><i class="fas fa-code"></i></div>
+                            <div>
+                                <div class="text-xs text-stone-600 uppercase tracking-wider">CodeChef</div>
+                                <div class="font-bold text-foreground">300+ Solved</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-dark relative">
+        <div class="container mx-auto px-6">
+
+            <!-- Currently Learning Section (NEW) -->
+            <div class="max-w-4xl mx-auto mb-16 glass-card p-6 rounded-2xl border border-accent/30 relative overflow-hidden group">
+                <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-blue-500 to-cyan-500"></div>
+                <div class="flex flex-col md:flex-row items-center gap-6">
+                    <div class="w-12 h-12 bg-blue-500/10 rounded-full flex items-center justify-center text-2xl text-accent animate-pulse-slow flex-shrink-0">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h3 class="text-sm uppercase tracking-widest text-stone-600 font-semibold mb-1">Currently Building</h3>
+                        <p class="text-lg md:text-xl text-foreground font-medium">
+                            Building an <span class="text-accent">AI Chatbot for Implementation Work</span> <span class="inline-block ml-2 px-3 py-1 rounded-full bg-blue-500/10 text-teal-700 text-xs">In Development</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-foreground">About Me</h2>
+                <div class="w-24 h-1.5 bg-gradient-to-r from-blue-600 to-cyan-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-start">
+                <div class="space-y-6 text-lg text-stone-600 leading-relaxed">
+                    <p>
+                        I am an <strong class="text-foreground">Implementation Engineer at CBO ERP Limited</strong>, based in Noida, Uttar Pradesh. Since February 2026, I have worked with manufacturing clients on ERP configuration, workflow mapping, data migration, user training, and go-live support.
+                    </p>
+                    <p>
+                        My background is in <strong class="text-foreground">Electronics and Communication Engineering</strong> at ABES Engineering College (2022–2026). I use <strong class="text-teal-700">Python, SQL, Power BI, and Advanced Excel</strong> to clean data, build dashboards, reconcile reports, and communicate useful insights.
+                    </p>
+                    <p>
+                        Beyond work, I serve as <strong class="text-foreground">Overall Coordinator at Light De Literacy</strong> and previously led events at the Eco-NSS Club. I am currently building an <strong class="text-teal-700">AI chatbot</strong>.
+                    </p>
+                </div>
+
+                <div class="journey-card" id="journey"><p class="journey-eyebrow">The path so far</p><h3 class="journey-title">My Journey</h3><p class="journey-intro">From engineering foundations to real-world implementation.</p><ol class="journey-list"><li class="journey-step current"><p class="journey-date">Now · In Development</p><h4>AI for Implementation Work</h4><p>Building an AI chatbot for implementation work, shaped by my hands-on ERP experience.</p></li><li class="journey-step current"><p class="journey-date">Feb 2026 – Present</p><h4>Implementation Engineer</h4><p>CBO ERP Limited · ERP implementation, data migration, UAT, training, and go-live support for 10+ client organizations.</p></li><li class="journey-step "><p class="journey-date">2025</p><h4>Putting Skills into Practice</h4><p>Data analytics training at MedTourEasy and an engineering internship at UPPCL, alongside machine learning and Power BI projects.</p></li><li class="journey-step "><p class="journey-date">2022 – 2026</p><h4>Engineering Foundation</h4><p>B.Tech in Electronics and Communication Engineering · ABES Engineering College.</p></li><li class="journey-step "><p class="journey-date">2020 – 2021</p><h4>School Years</h4><p>Class XII · Mahamana Malviya Inter College, Varanasi, Uttar Pradesh.</p></li></ol></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 bg-[#eeeae2]"><div class="container mx-auto px-6"><div class="max-w-3xl mx-auto text-center mb-16"><h2 class="text-3xl md:text-4xl font-bold mb-4 text-foreground">Technical Arsenal</h2><p class="text-stone-600">From clean data and clear dashboards to dependable ERP implementations.</p></div><div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto"><div class="bg-cardDark p-8 rounded-2xl border border-stone-200"><h3 class="text-xl font-bold mb-5 text-teal-700">Programming &amp; Analysis</h3><div class="flex flex-wrap gap-2"><span class="px-3 py-1 bg-stone-100 text-stone-700 rounded-full text-xs border border-stone-200">Python</span><span class="px-3 py-1 bg-stone-100 text-stone-700 rounded-full text-xs border border-stone-200">SQL</span><span class="px-3 py-1 bg-stone-100 text-stone-700 rounded-full text-xs border border-stone-200">C</span><span class="px-3 py-1 bg-stone-100 text-stone-700 rounded-full text-xs border border-stone-200">Pandas</span><span class="px-3 py-1 bg-stone-100 text-stone-700 rounded-full text-xs border border-stone-200">NumPy</span><span class="px-3 py-1 bg-stone-100 text-stone-700 rounded-full text-xs border border-stone-200">Data Cleaning</span><span class="px-3 py-1 bg-stone-100 text-stone-700 rounded-full text-xs border border-stone-200">Exploratory Data Analysis</span></div></div><div class="bg-cardDark p-8 rounded-2xl border border-stone-200"><h3 class="text-xl font-bold mb-5 text-teal-700">Dashboards &amp; Databases</h3><div class="flex flex-wrap gap-2"><span class="px-3 py-1 bg-stone-100 text-stone-700 rounded-full text-xs border border-stone-200">Power BI</span><span class="px-3 py-1 bg-stone-100 text-stone-700 rounded-full text-xs border border-stone-200">DAX</span><span class="px-3 py-1 bg-stone-100 text-stone-700 rounded-full text-xs border border-stone-200">Advanced Excel</span><span class="px-3 py-1 bg-stone-100 text-stone-700 rounded-full text-xs border border-stone-200">Google Sheets</span><span class="px-3 py-1 bg-stone-100 text-stone-700 rounded-full text-xs border border-stone-200">SQL Queries</span><span class="px-3 py-1 bg-stone-100 text-stone-700 rounded-full text-xs border border-stone-200">Joins</span><span class="px-3 py-1 bg-stone-100 text-stone-700 rounded-full text-xs border border-stone-200">Aggregations</span><span class="px-3 py-1 bg-stone-100 text-stone-700 rounded-full text-xs border border-stone-200">Dashboard Development</span></div></div><div class="bg-cardDark p-8 rounded-2xl border border-stone-200"><h3 class="text-xl font-bold mb-5 text-teal-700">ERP Implementation</h3><div class="flex flex-wrap gap-2"><span class="px-3 py-1 bg-stone-100 text-stone-700 rounded-full text-xs border border-stone-200">Business Requirements</span><span class="px-3 py-1 bg-stone-100 text-stone-700 rounded-full text-xs border border-stone-200">Workflow Mapping</span><span class="px-3 py-1 bg-stone-100 text-stone-700 rounded-full text-xs border border-stone-200">System Configuration</span><span class="px-3 py-1 bg-stone-100 text-stone-700 rounded-full text-xs border border-stone-200">Data Migration</span><span class="px-3 py-1 bg-stone-100 text-stone-700 rounded-full text-xs border border-stone-200">UAT</span><span class="px-3 py-1 bg-stone-100 text-stone-700 rounded-full text-xs border border-stone-200">Report Reconciliation</span><span class="px-3 py-1 bg-stone-100 text-stone-700 rounded-full text-xs border border-stone-200">User Training</span><span class="px-3 py-1 bg-stone-100 text-stone-700 rounded-full text-xs border border-stone-200">Go-live Support</span></div></div><div class="bg-cardDark p-8 rounded-2xl border border-stone-200"><h3 class="text-xl font-bold mb-5 text-teal-700">Tools &amp; Core Skills</h3><div class="flex flex-wrap gap-2"><span class="px-3 py-1 bg-stone-100 text-stone-700 rounded-full text-xs border border-stone-200">Jupyter Notebook</span><span class="px-3 py-1 bg-stone-100 text-stone-700 rounded-full text-xs border border-stone-200">Git</span><span class="px-3 py-1 bg-stone-100 text-stone-700 rounded-full text-xs border border-stone-200">CodeChef</span><span class="px-3 py-1 bg-stone-100 text-stone-700 rounded-full text-xs border border-stone-200">HackerRank</span><span class="px-3 py-1 bg-stone-100 text-stone-700 rounded-full text-xs border border-stone-200">Data Storytelling</span><span class="px-3 py-1 bg-stone-100 text-stone-700 rounded-full text-xs border border-stone-200">Problem Solving</span><span class="px-3 py-1 bg-stone-100 text-stone-700 rounded-full text-xs border border-stone-200">Leadership</span><span class="px-3 py-1 bg-stone-100 text-stone-700 rounded-full text-xs border border-stone-200">Collaboration</span></div></div></div></div></section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-24 bg-dark">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-foreground">Work Experience</h2>
+                <div class="w-24 h-1.5 bg-gradient-to-r from-blue-600 to-cyan-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="max-w-4xl mx-auto space-y-8">
+                <article class="bg-cardDark p-6 md:p-8 rounded-2xl border border-cyan-500/40 flex flex-col md:flex-row gap-6"><div class="md:w-1/3"><span class="text-teal-700 font-bold text-lg">CBO ERP Limited</span><p class="text-stone-600 text-sm mt-1">Feb 2026 – Present</p><span class="mt-3 inline-block px-3 py-1 bg-cyan-500/10 text-teal-700 text-xs rounded-full">Current Role</span></div><div class="md:w-2/3 border-l border-stone-200 pl-6 md:pl-8"><h3 class="text-xl font-bold text-foreground mb-3">Implementation Engineer</h3><p class="text-teal-700 font-semibold mb-4">10+ client organizations implemented</p><ul class="list-disc text-stone-600 space-y-3 ml-4"><li>Implement and configure manufacturing ERP solutions by analyzing business requirements and mapping operational workflows.</li><li>Support accurate configuration, data migration, user training, and smooth go-live across 10+ client organizations.</li><li>Validate, clean, and migrate master and transactional data with Advanced Excel.</li><li>Perform User Acceptance Testing (UAT), identify issues, and collaborate with cross-functional teams on functional and data fixes.</li><li>Create and verify reports, reconcile business data, and support clients with data-driven insights.</li><li>Deliver end-user training and post-implementation support to improve adoption and daily operations.</li></ul></div></article>
+<!-- Exp Item 1 -->
+                <div class="bg-cardDark p-6 md:p-8 rounded-2xl border border-stone-200 flex flex-col md:flex-row gap-6 hover:border-blue-500/30 transition">
+                    <div class="md:w-1/3">
+                        <span class="text-teal-700 font-bold text-lg">MedTourEasy</span>
+                        <div class="text-stone-600 text-sm mt-1">July - Aug 2025</div>
+                        <div class="mt-3 inline-block px-3 py-1 bg-blue-500/10 text-teal-700 text-xs rounded-full font-medium">Industrial Trainee</div>
+                    </div>
+                    <div class="md:w-2/3 border-l border-stone-200 pl-6 md:pl-8">
+                        <h3 class="text-xl font-bold text-foreground mb-2">Data Analytics Trainee</h3>
+                        <ul class="list-disc list-outside text-stone-600 space-y-2 ml-4">
+                            <li>Extracted insights from patient & hospital data for decision making.</li>
+                            <li>Applied statistical analysis, EDA, and data modeling.</li>
+                            <li>Strengthened proficiency in SQL, Dashboarding, and Data Storytelling.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Exp Item 2 -->
+                <div class="bg-cardDark p-6 md:p-8 rounded-2xl border border-stone-200 flex flex-col md:flex-row gap-6 hover:border-blue-500/30 transition">
+                    <div class="md:w-1/3">
+                        <span class="text-teal-700 font-bold text-lg">UPPCL</span>
+                        <div class="text-stone-600 text-sm mt-1">July 2025</div>
+                        <div class="mt-3 inline-block px-3 py-1 bg-blue-500/10 text-teal-700 text-xs rounded-full font-medium">Summer Intern</div>
+                    </div>
+                    <div class="md:w-2/3 border-l border-stone-200 pl-6 md:pl-8">
+                        <h3 class="text-xl font-bold text-foreground mb-2">Engineering Intern</h3>
+                        <ul class="list-disc list-outside text-stone-600 space-y-2 ml-4">
+                            <li>Hands-on exposure to power distribution, substations, and SCADA.</li>
+                            <li>Analyzed voltage/load data to prepare technical maintenance reports.</li>
+                            <li>Learned smart grid technologies and energy auditing.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 bg-[#eeeae2]">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-foreground">Featured Projects</h2>
+                <p class="text-stone-600">A showcase of my technical problem solving.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <article class="group bg-cardDark rounded-xl overflow-hidden border border-cyan-500/40 flex flex-col h-full"><div class="h-2 bg-cyan-400"></div><div class="p-6 flex-grow"><span class="inline-block text-xs font-semibold text-teal-700 bg-cyan-500/10 rounded-full px-3 py-1 mb-4">Currently Building · In Development</span><h3 class="text-xl font-bold text-foreground mb-3">AI Chatbot for Implementation Work</h3><p class="text-stone-600 leading-relaxed mb-5">Currently building an AI chatbot for implementation work, bringing my ERP implementation experience into a new AI project. The project is in development.</p><div class="flex flex-wrap gap-2"><span class="px-3 py-1 bg-stone-100 text-stone-700 rounded-full text-xs border border-stone-200">Artificial Intelligence</span><span class="px-3 py-1 bg-stone-100 text-stone-700 rounded-full text-xs border border-stone-200">Conversational AI</span></div></div></article>
+<!-- Project 1: Blood Donation ML -->
+                <div class="group bg-cardDark rounded-xl overflow-hidden border border-stone-200 hover:border-blue-500/50 transition duration-300 flex flex-col h-full">
+                    <div class="h-2 bg-blue-500"></div>
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-foreground group-hover:text-teal-700 transition">Predict Blood Donation using Machine Learning</h3>
+                            <i class="fas fa-heartbeat text-stone-600"></i>
+                        </div>
+                        <p class="text-stone-600 text-sm mb-6">August 2025 · Built a repeat-donor prediction model using the Blood Transfusion dataset (748 records). Applied data cleaning, log transformation, and EDA with Python, Pandas, and NumPy. Compared Logistic Regression with TPOT AutoML; Logistic Regression achieved a ROC AUC of 0.78.</p>
+                        <div class="mt-auto flex flex-wrap gap-2">
+                            <span class="text-xs text-stone-700 bg-stone-100 px-2 py-1 rounded">Python</span>
+                            <span class="text-xs text-stone-700 bg-stone-100 px-2 py-1 rounded">Scikit-learn</span>
+                            <span class="text-xs text-stone-700 bg-stone-100 px-2 py-1 rounded">TPOT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Job Market Analysis -->
+                <div class="group bg-cardDark rounded-xl overflow-hidden border border-stone-200 hover:border-yellow-500/50 transition duration-300 flex flex-col h-full">
+                    <div class="h-2 bg-yellow-500"></div>
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-foreground group-hover:text-yellow-400 transition">Indian Job Market Post-COVID Dashboard</h3>
+                            <i class="fas fa-briefcase text-stone-600"></i>
+                        </div>
+                        <p class="text-stone-600 text-sm mb-6">July 2025 · Built an interactive Power BI dashboard with Advanced Excel and DAX to compare hiring before and after COVID-19. Used measures, slicers, and maps to explore industry, role, skill demand, and regional employment trends.</p>
+                        <div class="mt-auto flex flex-wrap gap-2">
+                            <span class="text-xs text-stone-700 bg-stone-100 px-2 py-1 rounded">Power BI</span>
+                            <span class="text-xs text-stone-700 bg-stone-100 px-2 py-1 rounded">DAX</span>
+                            <span class="text-xs text-stone-700 bg-stone-100 px-2 py-1 rounded">Excel</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Sales Dashboard -->
+                <div class="group bg-cardDark rounded-xl overflow-hidden border border-stone-200 hover:border-orange-500/50 transition duration-300 flex flex-col h-full">
+                    <div class="h-2 bg-orange-500"></div>
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-foreground group-hover:text-orange-400 transition">Sales Dashboard</h3>
+                            <i class="fas fa-chart-line text-stone-600"></i>
+                        </div>
+                        <p class="text-stone-600 text-sm mb-6">An interactive dashboard to monitor and analyze sales performance across segments, implementing drill-downs, slicers, and dynamic KPIs using DAX.</p>
+                        <div class="mt-auto flex flex-wrap gap-2">
+                            <span class="text-xs text-stone-700 bg-stone-100 px-2 py-1 rounded">Power BI</span>
+                            <span class="text-xs text-stone-700 bg-stone-100 px-2 py-1 rounded">DAX</span>
+                            <span class="text-xs text-stone-700 bg-stone-100 px-2 py-1 rounded">KPIs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Guardian Drive -->
+                <div class="group bg-cardDark rounded-xl overflow-hidden border border-stone-200 hover:border-red-500/50 transition duration-300 flex flex-col h-full">
+                    <div class="h-2 bg-red-500"></div>
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-foreground group-hover:text-red-400 transition">Guardian Drive</h3>
+                            <i class="fas fa-car-crash text-stone-600"></i>
+                        </div>
+                        <p class="text-stone-600 text-sm mb-6">Dual-module system: IoT-based anti-theft control & AI-based driver drowsiness detection to prevent accidents.</p>
+                        <div class="mt-auto flex flex-wrap gap-2">
+                            <span class="text-xs text-stone-700 bg-stone-100 px-2 py-1 rounded">NodeMCU</span>
+                            <span class="text-xs text-stone-700 bg-stone-100 px-2 py-1 rounded">OpenCV</span>
+                            <span class="text-xs text-stone-700 bg-stone-100 px-2 py-1 rounded">GPS/GSM</span>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Project 5: Smart Plant Monitor -->
+                 <div class="group bg-cardDark rounded-xl overflow-hidden border border-stone-200 hover:border-green-500/50 transition duration-300 flex flex-col h-full">
+                    <div class="h-2 bg-green-500"></div>
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-foreground group-hover:text-green-400 transition">Smart Plant Monitor</h3>
+                            <i class="fas fa-leaf text-stone-600"></i>
+                        </div>
+                        <p class="text-stone-600 text-sm mb-6">IoT irrigation system. Monitors soil moisture & temp, automated via NodeMCU with Blynk app integration.</p>
+                        <div class="mt-auto flex flex-wrap gap-2">
+                            <span class="text-xs text-stone-700 bg-stone-100 px-2 py-1 rounded">Arduino</span>
+                            <span class="text-xs text-stone-700 bg-stone-100 px-2 py-1 rounded">Blynk</span>
+                            <span class="text-xs text-stone-700 bg-stone-100 px-2 py-1 rounded">DHT11</span>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Project 6: Smart Dustbin -->
+                 <div class="group bg-cardDark rounded-xl overflow-hidden border border-stone-200 hover:border-purple-500/50 transition duration-300 flex flex-col h-full">
+                    <div class="h-2 bg-purple-500"></div>
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-foreground group-hover:text-purple-400 transition">Smart Dustbin</h3>
+                            <i class="fas fa-recycle text-stone-600"></i>
+                        </div>
+                        <p class="text-stone-600 text-sm mb-6">Touchless waste collection system using ultrasonic sensors and servo motors for better hygiene.</p>
+                        <div class="mt-auto flex flex-wrap gap-2">
+                            <span class="text-xs text-stone-700 bg-stone-100 px-2 py-1 rounded">Arduino</span>
+                            <span class="text-xs text-stone-700 bg-stone-100 px-2 py-1 rounded">Ultrasonic</span>
+                            <span class="text-xs text-stone-700 bg-stone-100 px-2 py-1 rounded">Servo</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
